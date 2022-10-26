@@ -4,9 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+
     <title>Bate-Papo UOL</title>
+
+
 </head>
 <body>
-    
+    <header class="header-container">
+        <div class="left-icon"><img src="img/logo 1.png" alt=""></div>
+        <div class="right-icon"><i class="fa-solid fa-user-group"></i></div>
+    </header>
+
+    <section class="chat-container">
+        <span class="entry-msg">(99:99:99) <b>Fulano</b> entra na sala...</span>
+        <span class="def-msg">(99:99:99) <b>Fulano</b> para Todos: Olá Todos</span>
+        <span class="def-msg">(99:99:99) <b>Fulana</b> para <b>Fulano</b>: Olá Fulano :)</span>
+        <span class="pvt-msg">(99:99:99) <b>Fulano</b> <em>reservadamente para</em> <b>Fulana:</b> Olá Fulana, quer tc?</span>
+        <span class="entry-msg">(99:99:99) <b>Fulana</b> sai da sala...</span>
+    </section>
+
+    <section class="message-container">
+        <input class="input-box" type="text" placeholder="Escreva aqui...">
+        <button class="send-btn"><i class="fa-regular fa-paper-plane"></i></button>
+    </section>
+
+    <script src="https://kit.fontawesome.com/42a39329e3.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -19,15 +19,11 @@
 <body>
     <header class="header-container">
         <div class="left-icon"><img src="img/logo 1.png" alt=""></div>
-        <div class="right-icon"><i class="fa-solid fa-user-group"></i></div>
+        <div onclick="showUserList()" id="userList" class="right-icon"><i class="fa-solid fa-user-group"></i></div>
     </header>
 
     <section class="chat-container">
-        <span class="entry-msg">(99:99:99) <b>Fulano</b> entra na sala...</span>
-        <span class="def-msg">(99:99:99) <b>Fulano</b> para Todos: Olá Todos</span>
-        <span class="def-msg">(99:99:99) <b>Fulana</b> para <b>Fulano</b>: Olá Fulano :)</span>
-        <span class="pvt-msg">(99:99:99) <b>Fulano</b> <em>reservadamente para</em> <b>Fulana:</b> Olá Fulana, quer tc?</span>
-        <span class="entry-msg">(99:99:99) <b>Fulana</b> sai da sala...</span>
+        
     </section>
 
     <section class="message-container">
@@ -35,6 +31,31 @@
         <button class="send-btn"><i class="fa-regular fa-paper-plane"></i></button>
     </section>
 
+    <section onclick="hideUserList()" id="overlay" class="sidemenu-overlay hidden">
+        <div class="sidemenu-container">
+            <h2 class="side-title-box">
+                Escolha um contato para enviar mensagem
+            </h2>
+            <div class="user-list">
+                <span><i style="margin-right: 7px;" class="fa-solid fa-user-group"></i>Todos</span>
+                <span><i class="fa-solid fa-circle-user"></i>Fulano</span>
+                <span><i class="fa-solid fa-circle-user"></i>Fulana</span>
+                <span><i class="fa-solid fa-circle-user"></i>Fulanx</span>
+            </div>
+            <h2 class="side-title-box">
+                Escolha a visibilidade
+            </h2>
+            <div class="msg-type">
+                <span><i class="fa-solid fa-lock-open"></i>Público</span>
+                <span><i class="fa-solid fa-lock"></i>Reservadamente</span>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://kit.fontawesome.com/42a39329e3.js" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

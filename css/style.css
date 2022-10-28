@@ -23,6 +23,10 @@ em {
     font-style: italic;
 }
 
+time {
+    color: #aaaaaa;
+}
+
 .msg {
     width: 100%;
     min-height: 20px;
@@ -79,6 +83,8 @@ em {
         margin: 100px 0px;
         padding: 10px 0px;
         z-index: 0;
+        overflow-y: scroll;
+        word-wrap: break-word;
     }
 
     .message-container {
@@ -148,20 +154,29 @@ em {
         text-align: center;
     }
 
-    .user-list, .msg-type {
+    .user-list, .msg-types {
         display: flex;
         flex-direction: column;
         margin: 0px 20px;
+        word-wrap: break-word;
     }
 
-    .user-list span, .msg-type span {
+    .user-list {
+        max-height: 65%;
+        overflow-y:  scroll;
+    }
+
+    .user-list .unq-user, .msg-types .unq-user {
         font-size: 16px;
         font-weight: 400;
         padding: 8px 0px;
-
     }
 
-    .user-list i, .msg-type i {
+    .selected {
+        color: #28bb25;
+    }
+
+    .user-list i, .msg-types i {
         font-size: 18px;
         margin-right: 12px;
     }

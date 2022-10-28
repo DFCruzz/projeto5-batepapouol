@@ -1,8 +1,12 @@
 // setting up Global Variables
 const overlay = document.getElementById("overlay");
-let sentMsg;
+const allUsers = document.querySelectorAll(".unq-user");
 let msgData;
 let particList;
+let getUserName = {name: ""}
+let sentUser;
+let userMsg;
+let msgType; 
 
 
 function retrieveMsgList() {
@@ -21,6 +25,21 @@ function retrieveParticipantsList() {
     setTimeout(retrieveParticipantsList, 3000)
 }
 
+function joinChat() {
+    getUserName.name = prompt("Qual o seu nome chuchu?")
+    const userApi = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", getUserName)
+    userApi.then(deuBom())
+    userApi.catch(dataRetrieveError())
+    userActive()
+    
+}
+
+function userActive() {
+    axios.post("https://mock-api.driven.com.br/api/v6/uol/status", getUserName)
+
+    setTimeout(userActive, 5000)  
+}
+
 function showUserList() {
     overlay.classList.remove("hidden")
 }
@@ -33,7 +52,9 @@ function dataRetrieveError() {
     alert("Erro ao se conectar com o servidor! Por Favor, Recarregue a Página")
 }
 
-
+function deuBom() {
+    alert("deu Bom")
+}
 
 function retrieveMsg(target) {
     const chatBox = document.querySelector(".chat-container");
@@ -57,20 +78,24 @@ function retrieveMsg(target) {
             chatBox.innerHTML += privateMsg
         }
     }
+    const autoScroll = document.querySelector(".msg:last-child")
+    autoScroll.scrollIntoView();
 }
 
 function retrieveParticipants(target) {
     const userList = document.querySelector(".user-list");
     console.log(target.data);
     particList = target.data;
-    userList.innerHTML = "";
+    userList.innerHTML = `<div class="unq-user"><i style="margin-right: 7px;" class="fa-solid fa-user-group"></i>Todos</div>`;
     
     for(let i = 0; i < particList.length; i++){
-        const userId = (`<span><i class="fa-solid fa-circle-user"></i>${particList[i].name}</span>`);
+        const userId = (`<div class="unq-user"><i class="fa-solid fa-circle-user"></i>${particList[i].name}</div>`);
 
         userList.innerHTML += userId
     }
 }
 
+
 retrieveMsgList()
 retrieveParticipantsList()
+joinChat()

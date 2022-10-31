@@ -26,15 +26,20 @@ function retrieveParticipantsList() {
 }
 
 function joinChat() {
-    getUserName.name = prompt("Qual o seu nome chuchu?")
+    getUserName.name = document.querySelector(".entry-box").value
     const promisse = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", getUserName)
     promisse.then(joinSuccesful)
     promisse.catch(dataRetrieveError)
+    retrieveMsgList()
+    retrieveParticipantsList()
     userActive()  
 }
 
 function joinSuccesful() {
+    const entryScreen = document.querySelector(".entry-screen")
     alert(`Seja Bem vindo(a) ${getUserName.name}!`)
+
+    entryScreen.classList.add("hidden")
 }
 
 function userActive() {
@@ -165,8 +170,3 @@ inputBox.addEventListener("keypress", function(e) {
         sendMsg()
     }
 })
-
-
-retrieveMsgList()
-retrieveParticipantsList()
-joinChat()

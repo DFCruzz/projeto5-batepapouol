@@ -22,16 +22,22 @@
         <div onclick="showUserList()" id="userList" class="right-icon"><i class="fa-solid fa-user-group"></i></div>
     </header>
 
+    <section class="entry-screen">
+        <img src="img/logo 1.png" alt="">
+        <input type="text" placeholder="Digite seu nome...">
+        <button class="entry-btn"></button>
+    </section>
+
     <section class="chat-container">
     
     </section>
 
     <section class="message-container">
-        <input class="input-box" type="text" placeholder="Escreva aqui...">
-        <button class="send-btn"><i class="fa-regular fa-paper-plane"></i></button>
+        <input id="inputBox" class="input-box" type="text" placeholder="Escreva aqui...">
+        <button class="send-btn" onclick="sendMsg()"><i class="fa-regular fa-paper-plane"></i></button>
     </section>
 
-    <section onclick="hideUserList()" id="overlay" class="sidemenu-overlay hidden">
+    <section onclick="hideUserList(event)" id="overlay" class="sidemenu-overlay hidden">
         <div class="sidemenu-container">
             <h2 class="side-title-box">
                 Escolha um contato para enviar mensagem
@@ -43,8 +49,8 @@
                 Escolha a visibilidade
             </h2>
             <div class="msg-types">
-                <div class="a"><i class="fa-solid fa-lock-open"></i>Público</div>
-                <div class="a"><i class="fa-solid fa-lock"></i>Reservadamente</div>
+                <div data-identifier="visibility" onclick="setPublic()" id="public"><i class="fa-solid fa-lock-open"></i>Público</div>
+                <div data-identifier="visibility" onclick="sePrivate()" id="private"><i class="fa-solid fa-lock"></i>Reservadamente</div>
             </div>
         </div>
     </section>
@@ -56,3 +62,4 @@
     <script src="js/script.js"></script>
 </body>
 </html>
+

@@ -71,10 +71,10 @@ function retrieveMsg(target) {
     chatBox.innerHTML = ""
 
     for(let i = 0; i < msgData.length; i++) {
-        const statusMsg = (`<span class="msg entry"><time>${msgData[i].time}</time> <strong>${msgData[i].from}</strong> ${msgData[i].text}</span>`);
-        const defaultMsg = (`<span class="msg default"><time>${msgData[i].time}</time> <strong>${msgData[i].from}</strong> para <strong>${msgData[i].to}</strong>: ${msgData[i].text}</span>`);
-        const privateMsg = (`<span class="msg private"><time>${msgData[i].time}</time> <strong>${msgData[i].from}</strong> <em>reservadamente para</em> <strong>${msgData[i].to}</strong>: ${msgData[i].text}</span>`);
-        const hiddenPrivateMsg = (`<span class="msg private hidden"><time>${msgData[i].time}</time> <strong>${msgData[i].from}</strong> <em>reservadamente para</em> <strong>${msgData[i].to}</strong>: ${msgData[i].text}</span>`);
+        const statusMsg = (`<span data-test="message" class="msg entry"><time>${msgData[i].time}</time> <strong>${msgData[i].from}</strong> ${msgData[i].text}</span>`);
+        const defaultMsg = (`<span data-test="message" class="msg default"><time>${msgData[i].time}</time> <strong>${msgData[i].from}</strong> para <strong>${msgData[i].to}</strong>: ${msgData[i].text}</span>`);
+        const privateMsg = (`<span data-test="message" class="msg private"><time>${msgData[i].time}</time> <strong>${msgData[i].from}</strong> <em>reservadamente para</em> <strong>${msgData[i].to}</strong>: ${msgData[i].text}</span>`);
+        const hiddenPrivateMsg = (`<span data-test="message" class="msg private hidden"><time>${msgData[i].time}</time> <strong>${msgData[i].from}</strong> <em>reservadamente para</em> <strong>${msgData[i].to}</strong>: ${msgData[i].text}</span>`);
 
         if(msgData[i].type === "status") {
             chatBox.innerHTML += statusMsg
@@ -99,10 +99,10 @@ function retrieveParticipants(target) {
     const userList = document.querySelector(".user-list");
     console.log(target.data);
     particList = target.data;
-    userList.innerHTML = `<div onclick="selectUser(this)" class="unq-user"><i style="margin-right: 7px;" class="fa-solid fa-user-group"></i><p>Todos</p></div>`;
+    userList.innerHTML = `<div data-test="all" onclick="selectUser(this)" class="unq-user"><i style="margin-right: 7px;" class="fa-solid fa-user-group"></i><p>Todos</p></div>`;
     
     for(let i = 0; i < particList.length; i++){
-        const userId = (`<div data-identifier="participant" onclick="selectUser(this)" class="unq-user"><i class="fa-solid fa-circle-user"></i><p>${particList[i].name}</p></div>`);
+        const userId = (`<div data-test="participant" data-identifier="participant" onclick="selectUser(this)" class="unq-user"><i class="fa-solid fa-circle-user"></i><p>${particList[i].name}</p></div>`);
 
         userList.innerHTML += userId
     }

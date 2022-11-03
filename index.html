@@ -19,13 +19,13 @@
 <body>
     <header class="header-container">
         <div class="left-icon"><img src="img/logo 1.png" alt=""></div>
-        <div onclick="showUserList()" id="userList" class="right-icon"><i class="fa-solid fa-user-group"></i></div>
+        <div data-test="open-participants" onclick="showUserList()" id="userList" class="right-icon"><i class="fa-solid fa-user-group"></i></div>
     </header>
 
     <section class="entry-screen">
         <img src="img/logo 1.png" alt="">
-        <input data-identifier="enter-name" class="entry-box" type="text" placeholder="Qual seu nome chuchu?">
-        <button data-identifier="start" onclick="joinChat()" class="entry-btn">Entrar</button>
+        <input data-test="input-name" data-identifier="enter-name" class="entry-box" type="text" placeholder="Qual seu nome chuchu?">
+        <button data-test="send-name" data-identifier="start" onclick="joinChat()" class="entry-btn">Entrar</button>
     </section>
 
     <section class="chat-container">
@@ -33,8 +33,8 @@
     </section>
 
     <section class="message-container">
-        <input id="inputBox" class="input-box" type="text" placeholder="Escreva aqui...">
-        <button class="send-btn" onclick="sendMsg()"><i class="fa-regular fa-paper-plane"></i></button>
+        <input data-test="input-message" id="inputBox" class="input-box" type="text" placeholder="Escreva aqui...">
+        <button data-test="send-message" class="send-btn" onclick="sendMsg()"><i class="fa-regular fa-paper-plane"></i></button>
     </section>
 
     <section onclick="hideUserList(event)" id="overlay" class="sidemenu-overlay hidden">
@@ -49,8 +49,8 @@
                 Escolha a visibilidade
             </h2>
             <div class="msg-types">
-                <div data-identifier="visibility" onclick="setPublic()" id="public"><i class="fa-solid fa-lock-open"></i>Público</div>
-                <div data-identifier="visibility" onclick="sePrivate()" id="private"><i class="fa-solid fa-lock"></i>Reservadamente</div>
+                <div data-test="public" data-identifier="visibility" onclick="setPublic()" id="public"><i class="fa-solid fa-lock-open"></i>Público</div>
+                <div data-test="private" data-identifier="visibility" onclick="sePrivate()" id="private"><i class="fa-solid fa-lock"></i>Reservadamente</div>
             </div>
         </div>
     </section>
